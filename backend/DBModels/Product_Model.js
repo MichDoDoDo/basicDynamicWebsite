@@ -7,9 +7,11 @@ const productsSchema = new mongoose.Schema({
     quantity: { type: Number, required: true },
     category: { type: String, required: true },
     image: { type: String, required: true },
-    createdAt: { type: Date, default: Date.now }
+    
+},{
+    timestamps: true,
 });
 
-const products = mongoose.model("Products", productsSchema);
+const Products = mongoose.model("Products", productsSchema);
 
-export default products;
+export default Products;
