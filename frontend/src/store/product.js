@@ -9,12 +9,13 @@ export const useProductStore = create((set) => ({
       !newProduct.name ||
       !newProduct.price ||
       !newProduct.description ||
-      !newProduct.price ||
+      !newProduct.image||
       !newProduct.category ||
       !newProduct.quantity
     ) {
-      return { success: False, message: "Please fill in all feilds" };
+      return { success: false, message: "Please fill in all feilds" };
     }
+
     const res = await fetch("/api/products", {
       method: "POST",
       headers: {
@@ -22,8 +23,9 @@ export const useProductStore = create((set) => ({
       },
       body: JSON.stringify(newProduct),
     });
+    console.log("passed")
     const data = await res.json();
     set((state) => ({ products: [...state.products, data.data] }));
-    return { success: True, message: "Product Createed Successfully" };
+    return { success: true, message: "Product Createed Successfully" };
   },
 }));

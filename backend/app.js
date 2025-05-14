@@ -10,6 +10,7 @@ app.use(express.json());
 app.use("/api/products",router)
 
 
+
 app.listen(PORT, () =>{
     console.log(`localhost:${PORT} has been started hello`);
     if(connectDataBase()){
