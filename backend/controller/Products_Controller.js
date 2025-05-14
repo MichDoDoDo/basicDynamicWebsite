@@ -11,7 +11,7 @@ export const createProduct = async(req,res) => {
 
     try{
         await addNewProduct.save();
-        res.status(201).json({message: "Product created successfully", product});
+        res.status(201).json({message: "Product created successfully", data: product});
     }catch(error){
         res.status(500).json({message: "Error creating product", error});
     }
@@ -56,7 +56,7 @@ export const deleteProduct =  async(req,res) => {
         res.status(200).json({message: "Product deleted successfully", product});
     }
     catch(error){
-        res.status(500).json({message: "Error deleting product", error});
+        res.status(500).json({message: "Server Error", error});
     }   
 };
 
