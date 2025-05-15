@@ -7,6 +7,7 @@ import {
   VStack,
   Container,
   Button,
+  useToast,
 } from "@chakra-ui/react";
 import { useState } from "react";
 
@@ -20,11 +21,36 @@ const CreatePage = () => {
     image: "",
   });
 
+  const toast = useToast();
   const { createProduct } = useProductStore();
+
   const handleAddProduct = async () => {
     const { success, message } = await createProduct(newProduct);
-    console.log("Success:", success);
-    console.log("Message:", message);
+    if (!success) {
+      toast({
+        title: "Error",
+        description: message,
+        status: "fail",
+        duration: 8000,
+        isClosable: true,
+      });
+    } else {
+      toast({
+        title: "Success",
+        description: message,
+        status: "success",
+        duration: 8000,
+        isClosable: true,
+      });
+    }
+    setNewProduct({
+      name: "",
+      price: "",
+      description: "",
+      quantity: "",
+      category: "",
+      image: "",
+    });
   };
   return (
     <Container maxW={"container.sm"}>
