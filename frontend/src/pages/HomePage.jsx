@@ -66,8 +66,6 @@ const HomePage = () => {
             <ProductCard
               key={product._id}
               product={product}
-              onOpen={() => console.log("Edit clicked")}
-              handleDeleteProduct={(id) => console.log("Delete product", id)}
             />
           ))}
         </SimpleGrid>
