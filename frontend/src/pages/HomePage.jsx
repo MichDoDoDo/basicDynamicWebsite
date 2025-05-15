@@ -19,7 +19,6 @@ const HomePage = () => {
   useEffect(() => {
     quryProduct();
   }, [quryProduct]);
-  console.log(products);
 
   return (
     <Container maxW="container.xl" py={12}>
@@ -37,7 +36,7 @@ const HomePage = () => {
           </linearGradient>
         </defs>
       </svg>
-      <VStack>
+      <VStack spacing={8}>
         <HStack>
           <Text
             fontSize="40px"
@@ -45,7 +44,7 @@ const HomePage = () => {
             bgGradient="linear(to-r,rgb(120, 199, 247),rgb(136, 135, 247))"
             bgClip="text"
           >
-            Avalivale Fish
+            Available Fish
           </Text>
           <Icon
             as={IoFishSharp}
@@ -58,15 +57,12 @@ const HomePage = () => {
           />
         </HStack>
         <SimpleGrid
-          column={{ base: 1, md: 2, lg: 3 }}
+          columns={{ base: 1, md: 2, lg: 3 }}
           spacing={"15"}
           w={"full"}
         >
           {products.map((product) => (
-            <ProductCard
-              key={product._id}
-              product={product}
-            />
+            <ProductCard key={product._id} product={product} />
           ))}
         </SimpleGrid>
 

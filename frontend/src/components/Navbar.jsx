@@ -53,7 +53,7 @@ const Navbar = () => {
             bgGradient="linear(to-r,rgb(120, 199, 247),rgb(136, 135, 247))"
             bgClip="text"
           >
-            <Link to="/"> DODO Aquarium</Link>
+            <Link to="/"> Aquarium Hobby Store</Link>
           </Text>
         </HStack>
         <HStack alignItems={"center"}>
