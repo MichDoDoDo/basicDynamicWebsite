@@ -5,10 +5,10 @@ import dotenv from "dotenv";
 import path from "path";
 
 dotenv.config();
-const PORT = process.env.PORT || 5000;
 const app = express();
-app.use(express.json());
+const PORT = process.env.PORT || 8000;
 const __dirname = path.resolve();
+app.use(express.json());
 
 app.use("/api/products", router);
 
